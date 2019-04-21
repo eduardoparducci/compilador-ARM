@@ -1,4 +1,5 @@
-	;;    Soma entre valor empilhado e literal com resultado salvo em r0
+	;;	Soma entre valor empilhado e literal com resultado salvo em r0
+	
 	;;	configuraçao pilha
 	mov	sp, #0x200
 	
