@@ -7,7 +7,7 @@
 	mov	r0, #5
 	stmfd	sp!, {r0}
 		
-	;;		realizando a operaçao
+	;;	realizando a operaçao
 	ldmfd	sp!, {r1}
 	ldmfd	sp!, {r2}
 	add	r0, r1, r2
