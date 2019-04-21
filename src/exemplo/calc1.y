@@ -1,0 +1,46 @@
+%{
+#include <stdio.h>
+
+void yyerror(char *c);
+int yylex(void);
+
+%}
+
+%token INT SOMA MULT EOL PARO PARC
+%left INT
+
+%%
+
+PROGRAMA:
+        PROGRAMA EXPRESSAO EOL { printf("Resultado: %d\n", $2); }
+        |
+        ;
+
+
+EXPRESSAO:
+    INT { $$ = $1;
+    }
+    | PARO EXPRESSAO PARC  {
+        $$ = $2;
+    }
+    | EXPRESSAO SOMA EXPRESSAO  {
+        printf("Encontrei soma: %d + %d = %d\n", $1, $3, $1+$3);
+        $$ = $1 + $3;
+    }
+    | EXPRESSAO MULT EXPRESSAO  {
+        printf("Encontrei mult: %d * %d = %d\n", $1, $3, $1*$3);
+        $$ = $1 * $3;
+    }
+
+    ;
+%%
+
+void yyerror(char *s) {
+    fprintf(stderr, "%s\n", s);
+}
+
+int main() {
+  yyparse();
+  return 0;
+
+}
