@@ -7,7 +7,7 @@ int yylex(void);
 %}
 
 %token INT MULT SOMA SUB EOL PARO PARC
-%left SOMA
+%left SOMA SUB
 %left MULT
 %%
 
@@ -17,9 +17,25 @@ PROGRAMA:
         ;
 
 
-EXPRESSAO:
+NUMERO:
     INT {
         $$ = $1;
+    }
+    | SUB NUMERO {
+        $$ = $2*(-1);
+    }
+    | SOMA NUMERO {
+        $$ = $2;
+    }
+    ;
+
+EXPRESSAO:
+    NUMERO {
+        $$ = $1;
+    }
+    | EXPRESSAO SUB EXPRESSAO  {
+        printf("Encontrei subtracao: %d - %d = %d\n", $1, $3, $1-$3);
+        $$ = $1 - $3;
     }
     | EXPRESSAO SOMA EXPRESSAO  {
         printf("Encontrei soma: %d + %d = %d\n", $1, $3, $1+$3);
