@@ -1,0 +1,10 @@
+	mov	sp, #0x200
+	mov	r0, #2
+	stmfd	sp!, {r0}
+	mov	r0, #3
+	stmfd	sp!, {r0}
+	ldmfd	sp!, {r1}
+	ldmfd	sp!, {r2}
+	sub r0, r2, r1
+	stmfd	sp!, {r0}
+	ldmfd	sp!, {r0}

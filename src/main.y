@@ -54,7 +54,7 @@ EXPRESSAOP:
 %%
 
 void yyerror(char *s) {
-    fprintf(stderr, "%s\n", s);
+  fprintf(stderr, "%s\n", s);
 }
 
 int main() {

@@ -1,0 +1,4 @@
+	mov	sp, #0x200
+	mov	r0, #2
+	stmfd	sp!, {r0}
+	ldmfd	sp!, {r0}

@@ -35,7 +35,7 @@ void yyerror(char *);
           return PARC;
         }
 
-\n   {
+[\n]+   {
          return EOL;
        }
 
