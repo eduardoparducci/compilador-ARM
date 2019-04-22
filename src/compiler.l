@@ -18,6 +18,10 @@ void yyerror(char *);
           return SOMA;
         }
 
+[-]     {
+          return SUB;
+        }
+
 [*]     {
           return MULT;
         }
