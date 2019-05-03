@@ -4,7 +4,16 @@ Este repositório tem como finalidade compor os arquivos necessários para a imp
 ## Objetivo
 Realizar a compilação de linguagem matemática simples (operações de **soma**, **subtração**, **parentização** e **multiplicação**) para a linguagem ARM Assembly.
 
-## Instruções de Desenvolvimento
+## Instalação e uso
+Após clonar o repositório localmente `git clone [URL do repositório]` navegue para a pasta compilador-ARM
+Para compilar os arquivos de teste presentes no diretório `.tests/` 
+## Metodologia
+A expressão matemática é compilada de forma que os valores numéricos são empilhados, dessa forma
+a implementação das operações assume que os elementos a serem operados estão na pilha.
+
+## Exemplo
+
+## Instruções para Desenvolvimento
 Segue abaixo os comandos, em um terminal aberto, navegue até o diretório desejado para clonar o reposirótio e execute:
 ```
   git clone [URL do repositório]
