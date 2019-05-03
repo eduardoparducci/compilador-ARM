@@ -43,7 +43,7 @@ EXPRESSAOP:
         $$ = $1;
     }
     | EXPRESSAOP MULT EXPRESSAOP  {
-      printf("\tmov\tr2, #0\n\tmov\tr0, #0\n\tldmfd	sp!, {r1}\n\tldmfd	sp!, {r3}\n\tm%d_b\n\tcmp\tr2, r1\n\tbeq\tm%d_e\n\tadd\tr2, r2, #1\n\tadd\tr0, r0, r3\n\tb\tm%d_b\n\tm%d_e\n\tstmfd\tsp!, {r0}\n", mul, mul, mul, mul);
+      printf("\tmov\tr2, #0\n\tmov\tr0, #0\n\tldmfd	sp!, {r1}\n\tldmfd	sp!, {r3}\n\tm%d_b\n\tcmp\tr2, r1\n\tbeq\tm%d_e\n\tcmp\t r1, #0\n\tblt\t sub%d\n\tadd\tr2, r2, #1\n\tadd\tr0, r0, r3\n\tb\tm%d_b\nsub%d\n\tsub\t r2 ,r2,#1\n\tsub\t r0,r0,r3\n\tb\t m%d_b\nm%d_e\n\tstmfd\tsp!, {r0}\n", mul, mul,mul,mul,mul, mul, mul);
         mul++;
         $$ = $1;
     }
